@@ -1,0 +1,35 @@
+# 秘密情報（絶対にコミットしない）
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets.json
+
+# 依存・ビルド生成物
+node_modules/
+dist/
+build/
+.next/
+.output/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Cloudflare / ツールのローカル状態
+.wrangler/
+.vercel/
+.mcp.json
+
+# OS / エディタのゴミ
+.DS_Store
+Thumbs.db
+*.tmp
+*~
+.obsidian/
+
+# ローカル一過性の作業物
+tmp/
+scratch/
+*.log

@@ -1,0 +1,16 @@
+# .gitattributes — 改行コードの正規化
+# 目的: Windows(CRLF) と Linux/クラウド(LF) を跨いだ時の「改行だけの幽霊差分」を止める。
+# 導入後、既存blobを揃えるなら一度 `git add --renormalize .`。
+
+# 既定: テキストは自動判定してLF正規化（バイナリはNULバイト検出で自動除外）
+* text=auto
+
+# Windowsスクリプトは working tree で CRLF を維持（cmd.exe が安全側）
+*.cmd  text eol=crlf
+*.bat  text eol=crlf
+*.ps1  text eol=crlf
+
+# データとしてのJSON/JSONLは working tree でも LF 強制
+# （ハッシュ・差分・パーサの安定のため。Emma側でCRLF起因の事故が実在）
+*.json   text eol=lf
+*.jsonl  text eol=lf
